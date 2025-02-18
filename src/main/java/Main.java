@@ -14,10 +14,15 @@ public class Main {
 
             int speed = -1;
             while (speed < 0 || speed > 250) {
-                System.out.print("Введите скорость автомобиля (0-250 км/ч): ");
-                speed = scanner.nextInt();
-                if (speed < 0 || speed > 250) {
-                    System.out.println("Ошибка: скорость должна быть в диапазоне от 0 до 250.");
+                try {
+                    System.out.print("Введите скорость автомобиля (0-250 км/ч): ");
+                    speed = Integer.parseInt(scanner.next());
+
+                    if (speed < 0 || speed > 250) {
+                        System.out.println("Ошибка: скорость должна быть в диапазоне от 0 до 250.");
+                    }
+                } catch (NumberFormatException e) {
+                    System.out.println("Ошибка: введите числовое значение для скорости.");
                 }
             }
 
